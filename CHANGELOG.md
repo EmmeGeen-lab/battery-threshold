@@ -8,3 +8,5 @@
 - Polkit-authorized threshold changes
 - systemd, SysVinit, and OpenRC persistence
 - DEB, RPM, and portable packaging
+- DEB, graphical threshold change, and reboot persistence verified on iDeal OS
+  4.4 with an ASUS TUF Gaming A15 FA506IV
