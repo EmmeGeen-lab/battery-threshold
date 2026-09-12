@@ -8,7 +8,7 @@ support: the firmware and kernel driver must expose this attribute.
 
 | Vendor | Model | Battery | System | Status |
 |---|---|---|---|---|
-| ASUS | TUF Gaming A15 FA506IV (`FA506IV_FA506IV`) | BAT1 | iDeal OS 4.4 (Debian/MX), SysVinit 3.14, kernel 7.2.4-4-liquorix-amd64 | Verified at 70% after reboot |
+| ASUS | TUF Gaming A15 FA506IV (`FA506IV_FA506IV`) | BAT1 | iDeal OS 4.4 (Debian/MX), SysVinit 3.14, kernel 7.2.4-4-liquorix-amd64 | DEB 0.1.0 beta 1 verified: GUI change to 65%, then saved and restored at 70% after reboot |
 
 The verified system uses KDE Plasma 6.3.6 on Wayland. The desktop environment
 and graphics platform do not normally affect threshold support; the important
