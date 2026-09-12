@@ -1,0 +1,29 @@
+name: Hardware compatibility report
+description: Report a working or non-working laptop
+title: "[Hardware]: "
+labels: [hardware]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Laptop vendor and model
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: Distribution, init system, and kernel
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options: [Works after reboot, Works until reboot, Not detected, Error while applying]
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Do not include serial numbers or unique identifiers.

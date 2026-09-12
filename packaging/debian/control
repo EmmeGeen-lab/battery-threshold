@@ -1,0 +1,13 @@
+Package: battery-threshold
+Version: 0.1.0~beta1
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-tk, pkexec | policykit-1
+Conflicts: limite-batteria
+Replaces: limite-batteria
+Maintainer: Marco Z. <318015255+EmmeGeen-lab@users.noreply.github.com>
+Homepage: https://github.com/EmmeGeen-lab/battery-threshold
+Description: Graphical battery charge threshold control
+ A small desktop-independent interface for setting and restoring the Linux
+ charge_control_end_threshold value. Supports systemd and SysVinit.

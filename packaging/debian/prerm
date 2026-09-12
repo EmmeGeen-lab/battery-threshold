@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+if [ "$1" = remove ]; then
+    if [ -d /run/systemd/system ] && command -v systemctl >/dev/null 2>&1; then systemctl disable --now battery-threshold.service || true
+    elif command -v update-rc.d >/dev/null 2>&1; then update-rc.d -f battery-threshold remove || true
+    fi
+fi
+exit 0

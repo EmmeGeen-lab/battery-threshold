@@ -1,0 +1,29 @@
+#!/bin/sh
+set -eu
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+export PATH
+
+VALUE="${1:-}"
+case "$VALUE" in ''|*[!0-9]*) echo "Invalid threshold." >&2; exit 2 ;; esac
+if [ "$VALUE" -lt 50 ] || [ "$VALUE" -gt 100 ]; then
+    echo "Threshold must be between 50 and 100." >&2
+    exit 2
+fi
+
+FOUND=0
+for BATTERY_FILE in /sys/class/power_supply/BAT*/charge_control_end_threshold; do
+    if [ -e "$BATTERY_FILE" ]; then
+        printf '%s\n' "$VALUE" > "$BATTERY_FILE"
+        FOUND=1
+    fi
+done
+[ "$FOUND" -eq 1 ] || { echo "No compatible battery detected." >&2; exit 3; }
+
+umask 022
+TMP_FILE=$(mktemp /etc/default/battery-threshold.XXXXXX)
+trap 'rm -f "$TMP_FILE"' EXIT HUP INT TERM
+printf 'CHARGE_LIMIT=%s\n' "$VALUE" > "$TMP_FILE"
+chmod 644 "$TMP_FILE"
+mv -f "$TMP_FILE" /etc/default/battery-threshold
+trap - EXIT HUP INT TERM
+exit 0

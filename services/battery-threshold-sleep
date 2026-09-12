@@ -1,0 +1,5 @@
+#!/bin/sh
+case "${1:-}" in
+    post) /usr/lib/battery-threshold/battery-threshold-restore || true ;;
+esac
+exit 0

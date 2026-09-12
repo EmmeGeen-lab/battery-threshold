@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN" "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>Battery Threshold</vendor>
+  <vendor_url>https://github.com/EmmeGeen-lab/battery-threshold</vendor_url>
+  <action id="io.github.battery-threshold.configure">
+    <description>Change the battery charge threshold</description>
+    <description xml:lang="it">Modifica il limite di carica della batteria</description>
+    <message>Authentication is required to change the battery charge threshold</message>
+    <message xml:lang="it">È necessario autenticarsi per modificare il limite di carica</message>
+    <icon_name>battery-threshold</icon_name>
+    <defaults><allow_any>no</allow_any><allow_inactive>no</allow_inactive><allow_active>auth_admin_keep</allow_active></defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/battery-threshold/battery-threshold-helper</annotate>
+  </action>
+</policyconfig>

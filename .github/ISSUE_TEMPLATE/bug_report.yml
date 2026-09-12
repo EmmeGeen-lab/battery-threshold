@@ -1,0 +1,40 @@
+name: Bug report
+description: Report a problem with Battery Threshold
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Please remove serial numbers and other unique identifiers from command output."
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: input
+    id: laptop
+    attributes:
+      label: Laptop vendor and model
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: Distribution and version
+    validations:
+      required: true
+  - type: input
+    id: kernel
+    attributes:
+      label: Kernel version (`uname -r`)
+    validations:
+      required: true
+  - type: textarea
+    id: threshold
+    attributes:
+      label: Threshold nodes
+      description: Output of `ls /sys/class/power_supply/BAT*/charge_control_end_threshold`
+    validations:
+      required: true

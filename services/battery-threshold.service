@@ -1,0 +1,11 @@
+[Unit]
+Description=Restore the battery charge threshold
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/battery-threshold/battery-threshold-restore
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

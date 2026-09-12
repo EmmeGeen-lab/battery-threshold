@@ -1,0 +1,19 @@
+#!/sbin/openrc-run
+# shellcheck disable=SC2034
+
+description="Restore the battery charge threshold"
+
+depend() {
+    need localmount
+    after bootmisc
+}
+
+start() {
+    ebegin "Restoring battery charge threshold"
+    if [ -x /usr/local/lib/battery-threshold/battery-threshold-restore ]; then
+        /usr/local/lib/battery-threshold/battery-threshold-restore
+    else
+        /usr/lib/battery-threshold/battery-threshold-restore
+    fi
+    eend $?
+}

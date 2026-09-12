@@ -1,0 +1,11 @@
+name: Checks
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y python3-tk shellcheck desktop-file-utils
+      - run: make check
+      - run: shellcheck src/battery-threshold-helper src/battery-threshold-restore install.sh uninstall.sh services/battery-threshold.sysv
+      - run: desktop-file-validate data/battery-threshold.desktop

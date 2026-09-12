@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+if [ ! -r /etc/default/battery-threshold ]; then
+    CURRENT=70
+    for FILE in /sys/class/power_supply/BAT*/charge_control_end_threshold; do
+        if [ -r "$FILE" ]; then CURRENT=$(cat "$FILE"); break; fi
+    done
+    printf 'CHARGE_LIMIT=%s\n' "$CURRENT" > /etc/default/battery-threshold
+fi
+if [ -d /run/systemd/system ] && command -v systemctl >/dev/null 2>&1; then
+    systemctl daemon-reload
+    systemctl enable --now battery-threshold.service || true
+elif command -v update-rc.d >/dev/null 2>&1; then
+    update-rc.d battery-threshold defaults
+    invoke-rc.d battery-threshold start || true
+fi
+exit 0

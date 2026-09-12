@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+if [ -d /run/systemd/system ] && command -v systemctl >/dev/null 2>&1; then systemctl daemon-reload || true; fi
+if [ "$1" = purge ]; then rm -f /etc/default/battery-threshold; fi
+exit 0

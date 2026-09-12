@@ -1,0 +1,29 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          battery-threshold
+# Required-Start:    $local_fs
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: Restore the battery charge threshold
+### END INIT INFO
+
+restore_threshold() {
+    if [ -x /usr/local/lib/battery-threshold/battery-threshold-restore ]; then
+        /usr/local/lib/battery-threshold/battery-threshold-restore
+    else
+        /usr/lib/battery-threshold/battery-threshold-restore
+    fi
+}
+
+case "${1:-start}" in
+    start|restart|force-reload) restore_threshold ;;
+    stop) : ;;
+    status)
+        for FILE in /sys/class/power_supply/BAT*/charge_control_end_threshold; do
+            [ -f "$FILE" ] && printf '%s: %s%%\n' "$(basename "$(dirname "$FILE")")" "$(cat "$FILE")"
+        done
+        ;;
+    *) echo "Usage: $0 {start|stop|restart|force-reload|status}" >&2; exit 2 ;;
+esac
+exit 0

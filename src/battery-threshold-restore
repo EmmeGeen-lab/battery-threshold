@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+export PATH
+
+CHARGE_LIMIT=70
+if [ -r /etc/default/battery-threshold ]; then
+    CONFIG_LINE=''
+    IFS= read -r CONFIG_LINE < /etc/default/battery-threshold || true
+    case "$CONFIG_LINE" in CHARGE_LIMIT=*) CHARGE_LIMIT=${CONFIG_LINE#CHARGE_LIMIT=} ;; esac
+fi
+case "$CHARGE_LIMIT" in ''|*[!0-9]*) exit 1 ;; esac
+[ "$CHARGE_LIMIT" -ge 50 ] && [ "$CHARGE_LIMIT" -le 100 ] || exit 1
+
+for BATTERY_FILE in /sys/class/power_supply/BAT*/charge_control_end_threshold; do
+    [ -e "$BATTERY_FILE" ] && printf '%s\n' "$CHARGE_LIMIT" > "$BATTERY_FILE"
+done
+exit 0
