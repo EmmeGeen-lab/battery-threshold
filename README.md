@@ -35,7 +35,7 @@ kernel node is absent, the application disables its Apply button.
 ### Debian, Ubuntu, Mint, MX, iDeal Linux
 
 ```bash
-sudo apt install ./battery-threshold_0.1.0~beta1_all.deb
+sudo apt install ./battery-threshold_0.1.0.beta1_all.deb
 ```
 
 ### Fedora, RHEL, Rocky, AlmaLinux, openSUSE
