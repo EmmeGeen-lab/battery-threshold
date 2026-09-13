@@ -76,6 +76,13 @@ Bug reports, hardware test results, translations, and code contributions are
 welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) or open an issue in the
 [project repository](https://github.com/EmmeGeen-lab/battery-threshold/issues).
 
+## Support
+
+Battery Threshold is free and open-source software. If you find it useful, you
+can leave an optional tip on [Ko-fi](https://ko-fi.com/emmegeen).
+
+[![Support Battery Threshold on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/emmegeen)
+
 ## License and author
 
 Copyright © 2026 Marco Z.  
