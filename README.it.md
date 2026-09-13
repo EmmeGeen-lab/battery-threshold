@@ -31,7 +31,7 @@ compatibile e disattiva il pulsante di applicazione.
 Su iDeal Linux, Debian, Ubuntu, Mint e MX:
 
 ```bash
-sudo apt install ./battery-threshold_0.1.0~beta1_all.deb
+sudo apt install ./battery-threshold_0.1.0.beta1_all.deb
 ```
 
 Su Fedora e derivate:
