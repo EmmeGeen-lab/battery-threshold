@@ -11,7 +11,7 @@ import tkinter as tk
 from pathlib import Path
 from tkinter import messagebox, ttk
 
-VERSION = "0.1.0-beta"
+VERSION = "0.1.0-beta1"
 APP_ID = "io.github.battery-threshold"
 HELPERS = (
     "/usr/lib/battery-threshold/battery-threshold-helper",

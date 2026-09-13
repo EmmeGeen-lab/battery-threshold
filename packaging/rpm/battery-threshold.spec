@@ -54,5 +54,5 @@ if [ "$1" -eq 0 ]; then rm -f /etc/default/battery-threshold; fi
 /usr/share/polkit-1/actions/io.github.battery-threshold.policy
 
 %changelog
-* Sat Sep 12 2026 Marco Z. - 0.1.0-0.beta1
+* Sun Sep 13 2026 Marco Z. - 0.1.0-0.beta1
 - Initial public beta.

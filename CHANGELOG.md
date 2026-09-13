@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0-beta1 — 2026-09-12
+## 0.1.0-beta1 — 2026-09-13
 
 - Initial public beta
 - English and Italian graphical interface
