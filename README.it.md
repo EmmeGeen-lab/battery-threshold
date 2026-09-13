@@ -48,6 +48,13 @@ altri sistemi è disponibile l’installatore portatile.
 La versione 0.1.0 è destinata ai test. Prima di dichiarare compatibile un nuovo
 portatile, verificare che il valore scelto resti presente dopo un riavvio.
 
+## Sostieni il progetto
+
+Battery Threshold è software gratuito e open source. Se lo trovi utile, puoi
+lasciare un’offerta facoltativa su [Ko-fi](https://ko-fi.com/emmegeen).
+
+[![Sostieni Battery Threshold su Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/emmegeen)
+
 ## Licenza e autore
 
 Copyright © 2026 Marco Z.  
